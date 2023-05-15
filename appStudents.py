@@ -6,7 +6,7 @@ import csv
 import time
 import os
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 
 st.set_page_config(page_title="QuizGpt-ESI")
 

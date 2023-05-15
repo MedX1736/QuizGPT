@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import time
+import os
+
+os.environ["OPENAI_API_KEY"] = "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"
 
 st.set_page_config(page_title="QuizGpt-ESI")
 

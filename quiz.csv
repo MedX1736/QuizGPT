@@ -1,0 +1,135 @@
+Question,Response
+"Quelle est la valeur retournée par la fonction identité QUOTE ?
+A. La valeur de l'argument sans être évaluée
+B. La valeur de l'argument évaluée
+C. La valeur de vérité VRAI
+D. La valeur de vérité FAUX
+",A. La valeur de l'argument sans être évaluée
+"Quelle est la règle de la résolution ?
+A. E1, E2 |-- E3 ssi E1 est de la forme a A et E2 est de la forme b B et E3 est de la forme (A , où  est une substitution de renommage de telle sorte que E1 et E2 ne doivent avoir aucune variable commune et  est l'unificateur le plus général entre a et b
+B. E1, E2 |-- E3 ssi E1 est de la forme a A et E2 est de la forme b B et E3 est de la forme A
+C. E1, E2 |-- E3 ssi E1 est de la forme a A et E2 est de la forme b
+Question : Quelle est la technique d'exploration systématique la plus efficace pour trouver une solution dans un graphe orienté implicite ?
+A. Recherche en profondeur
+B. Recherche en largeur
+C. Recherche aléatoire
+D. Recherche par dichotomie
+","A. Recherche en profondeurRéponse : A. Recherche en profondeur
+Quelle est la complexité de l'algorithme du tri par sélection?
+A. O(n)
+B. O(n2)
+C. O(n3)
+D. O(log n)
+"
+"Quel type de problème de décision peut être résolu en temps polynomial par des algorithmes déterministes ?
+A. Les problèmes de décision non déterministes
+B. Les problèmes de décision déterministes
+C. Les problèmes généraux
+D. Les problèmes de décision non polynomiaux
+",B. Les problèmes de décision déterministes
+"Quelle est la classe des problèmes de décision pouvant être résolus en temps polynomial ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complete
+D. Classe NP-Hard
+",A. Classe P
+"Quelle est la principale caractéristique de la programmation logique?
+A. Utilisation de symboles de constantes, de fonctions et de prédicats
+B. Utilisation de règles d'inférence
+C. Utilisation de l'inférence logique
+D. Utilisation de formules bien formées
+","C. Utilisation de l'inférence logique, avec des règles d'inférence telles que la règle de résolution et la règle de diminution."
+"Quel type de machine de Turing est décrit dans le contexte ?
+A. Une machine de Turing déterministe
+B. Une machine de Turing non déterministe
+C. Une machine de Turing à états finis
+D. Une machine de Turing à états infinis
+",B. Une machine de Turing non déterministe
+"Quelle est la propriété d'admissibilité d'A*?
+",A. A* est assuré de trouver un chemin optimal vers un but s'il existe. B. A* est assuré de trouver un chemin le plus court possible vers un but s'il existe. C. A* est assuré de trouver un chemin le plus rapide possible vers un but s'il existe. D. A* est assuré de trouver un chemin le moins coûteux possible vers un but s'il existe.
+"Quel type de problème de décision peut être résolu en temps polynomial par des algorithmes déterministes ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complet
+D. Classe P-Complet
+",A. Classe P
+"Quelle est la complexité de l'algorithme de multiplication de grands entiers par la méthode habituelle ?
+A. O(n)
+B. O(n log n)
+C. O(n2)
+D. O(n1.59)
+",D. O(n1.59)
+"Quelle est la définition d'un système formel ?
+A. Un ensemble fini de prédicats décidables
+B. Un alphabet fini ou infini dénombrable
+C. Un sous-ensemble récursif de l'ensemble de toutes les suites finies de l'alphabet
+D. Un sous-ensemble récursif de l'ensemble des formules bien formées
+",B. Un alphabet fini ou infini dénombrable
+"Quelle est la classe des problèmes de décision pouvant être résolus en temps polynomial ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complete
+D. Classe NP-Hard
+","A. Classe P. Tout problème de décision pour lequel il existe un algorithme de résolution général ayant une complexité polynomiale, est classé dans P."
+"Quelle est la preuve nécessaire pour démontrer que x = Sup ( f ( ) ) est une solution de x = f(x) ?
+A. Preuve totale
+B. Preuve partielle
+C. Preuve par récurrence
+",A. Preuve totale
+"Quelle est la principale différence entre le λ-calcul et le Lisp ?
+A. Le λ-calcul est une fonction d'ordre supérieur alors que le Lisp est une fonction récursive
+B. Le λ-calcul est une fonction récursive alors que le Lisp est une fonction d'ordre supérieur
+C. Le λ-calcul est une fonction impérative alors que le Lisp est une fonction fonctionnelle
+D. Le λ-calcul est une fonction fonctionnelle alors que le Lisp est une fonction impérative
+",D. Le λ-calcul est une fonction fonctionnelle alors que le Lisp est une fonction impérative
+"Quelle est la représentation d'une liste vide en Prolog ?
+A. [ ]
+B. [X]
+C. [X|Y]
+D. [X,Y,Z]
+","A. [ ]Réponse : A. [ ]
+"
+"Est-ce que le problème P1 est strictement réductible à P2 ?
+A. Oui
+B. Non
+C. Peut-être
+D. Aucune des réponses ci-dessus
+",B. Non
+"Quelle est la classe des problèmes de décision pouvant être résolus en temps polynomial ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complete
+D. Classe NP-Hard
+",A. Classe P. Les problèmes de cette classe peuvent être résolus en temps polynomial par des algorithmes déterministes (machines de Turing déterministes).
+"A. <λ-exp> ::= <Cste> / <Var> / <λ-exp> <λ-exp> B. <λ-exp> ::= <Cste> / <Var> / <λ-exp> <λ-exp> / λ<Var> . <λ-exp> C. <λ-exp> ::= <Cste> / <Var> / <λ-exp> <λ-exp> / λ<Var> D. <λ-exp> ::= <Cste> / <Var> / λ<Var>
+Reponse : B. <λ-exp> ::= <Cste> / <Var> / <λ-exp> <λ-exp> / λ<Var> . <λ-exp>
+Question : Quelle est la classe des problèmes de décision pouvant être résolus en temps polynomial ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complete
+D. Classe NP-Hard
+",A. Classe P
+"Qu'est-ce qu'un système formel ?
+A. Un langage de programmation
+B. Une théorie mathématique
+C. Une application informatique
+D. Un prédicat décidable
+","B. Une théorie mathématique. Un système formel est une théorie mathématique qui définit des règles et des axiomes pour décrire et analyser des systèmes complexes. Il peut être utilisé pour définir des relations entre des objets et des concepts, et pour déterminer leurs propriétés et leurs comportements."
+"Quelle est la syntaxe générale d'une λ-expression ?
+A. Cste / Var / Appel de fonction
+B. Cste / Var / Appel de fonction / λ-abstraction
+C. Cste / Var / Appel de fonction / λ-expression
+D. Cste / Var / λ-expression
+",D. Cste / Var / λ-expression
+"Quelle est la classe des problèmes de décision pouvant être résolus en temps polynomial ?
+A. Classe P
+B. Classe NP
+C. Classe NP-Complete
+D. Classe NP-Hard
+","A. Classe PRéponse : A. Classe P
+Question: Quelle est la complexité de l'algorithme de tri par fusion?
+A. O(n)
+B. O(n^2)
+C. O(n*log n)
+D. O(log n)
+"

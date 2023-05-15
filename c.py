@@ -4,20 +4,37 @@ def extract_questions_and_responses(file_path):
     questions = []
     answers = []
     answer = None
+    qst = 0 
     with open(file_path, 'r' , encoding="utf8") as file:
         lines = file.readlines()
-        
-        for i in range(0,len(lines)) :
+        i=0
+        while i < len(lines)-1 :
             line = lines[i].strip()
-            if line.startswith("Question :"):
-                question = line.replace("Question :", "").strip()
-                questions.append(question)
-                if answer : 
-                    answers.append(answer)
-            elif line.startswith("Réponse :"):
+            if line.startswith("Réponse :"):
                 answer = line.replace("Réponse :", "").strip()
-            else :
-                answer += line.strip() + '\n'
+                for j in range(i,len(lines)):
+                    if (lines[i+1].startswith("Question :")) or (lines[i+1].startswith("Q :")) :
+                        answers.append(answer)
+                        answer= ""
+                        break;
+                    else : 
+                        answer += lines[i].strip() + '\n'
+                        i = i +1
+            else:
+                if (line.startswith("Question :")):
+                    question = line.replace("Question :", "").strip() + '\n'
+                if (line.startswith("Q :")):
+                    question = line.replace("Q :", "").strip() + '\n'
+                for j in range(i,len(lines)):
+                    if lines[i+1].startswith("Réponse :") :
+                        questions.append(question)
+                        question =""
+                        break
+                    else :
+                        question += lines[i+1].strip() + '\n'
+                        i = i +1
+            i = i+1
+            
     return questions, answers
 
 def write_to_csv(file_path, questions, responses):
@@ -29,7 +46,7 @@ def write_to_csv(file_path, questions, responses):
             writer.writerow([question, response])
 
 # Usage example
-file_path = "generated_questions/TPRO/questions.txt"  # Replace with the path to your file
+file_path = "generated_questions/TPRO/quizs.txt"  # Replace with the path to your file
 output_csv_path = 'output.csv'  # Path to the output CSV file
 
 questions, responses = extract_questions_and_responses(file_path)

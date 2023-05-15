@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import time
 
+st.set_page_config(page_title="QuizGpt-ESI")
+
 def data_extraction(file=None):
     st.title("Topics : ")
 
@@ -55,8 +57,7 @@ def data_extraction(file=None):
 
 
 def main():
-    st.title("QuizGPT-Esi")
-    
+    st.title("📚 QuizGPT-Esi For Teacher")
     # Upload multiple files
     uploaded_files = st.file_uploader("Upload Files", accept_multiple_files=True)
     

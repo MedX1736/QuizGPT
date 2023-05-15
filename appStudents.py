@@ -18,14 +18,24 @@ with st.sidebar:
     💡 Note: OpenAi api key not required ! The questions are already generated
     ''')
 
-waiting_for_user_answer = True
+submittedAnswer = False
+waiting_for_user_answer = False
+
 #Load Questions 
-def locate_random_row(csv_file="output.csv"):
+def locate_random_direct_question(csv_file="output.csv"):
     with open(csv_file, 'r',encoding="utf-8") as file:
         lines = list(csv.reader(file))
         random_index = random.randrange(1, len(lines))
         random_row = lines[random_index]
-        return random_row[0] , random_row[1]
+        return random_row[0] , random_row[1] , random_index
+
+def locate_random_quiz(csv_file="output.csv"):
+    with open(csv_file, 'r',encoding="utf-8") as file:
+        lines = list(csv.reader(file))
+        random_index = random.randrange(1, len(lines))
+        random_row = lines[random_index]
+        return random_row[0] , random_row[1] , random_index
+
 
 def get_type():
     with input_container:
@@ -33,42 +43,36 @@ def get_type():
 
         col1, col2, col3 = st.columns(3)
 
-        option_selected = col1.button("Text Input")
-        if option_selected:
-            user_input = st.text_input("You: ", "", key="input")
+        option_selected_1 = col1.button("Text Input")
+        option_selected_2 = col2.button("Quiz")
+        option_selected_3 = col3.button("Direct Question")
+        if option_selected_1:
+            return "Text Input"
+        if option_selected_2:
+            return "Quiz"
+        if option_selected_3 :
+            return "Direct Question"
 
-        option_selected = col2.button("Quiz")
-        if option_selected:
-            user_input = "Quiz"  # Replace with your desired string or logic for quiz input
+def clear_input():
+    st.session_state["input"] = ""  
 
-        option_selected = col3.button("Direct Question")
-        if option_selected:
-            user_input = "Direct Question"
-    if option_selected: 
-        return user_input
 
-def generate_response(user_input):
+def generate_response(user_input,text_input=None):
     if user_input == "Direct Question":
-        question , answer = locate_random_row()
-
+        question , answer , index = locate_random_direct_question() 
         return question
+    elif user_input == "Text Input":
+        return "You can ask me about any of your university courses ! (jk not all of them)"
     elif user_input == "Quiz":
-        return ""
-    elif user_input == "Quiz":
-        return ""
-    
-    
-
-
-
+        question , answer , index = locate_random_direct_question()
+        return question
+    if text_input :
+        return "Omba3d n repondilek"
 input_container = st.container()
 
-## Applying the user input box
 with input_container:
-    if waiting_for_user_answer:
-        user_input = st.text_input("Give an Answer: ", "", key="input")
-    else:
         input = get_type()
+        text_input_bool = True
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
@@ -85,6 +89,19 @@ with response_container:
         response = generate_response(input)
         st.session_state.student.append(input)
         st.session_state.tutor.append(response)
+
+
+if text_input_bool: 
+    with input_container:
+        text_input = st.text_input("Give an Answer: ", "", key="input")
+        if st.button("Submit") :
+            if text_input :
+                response = generate_response(input,text_input)
+                st.session_state.student.append(text_input)
+                st.session_state.tutor.append(response)
+                text_input_bool = False
+
+    # if submittedAnswer and 
         
     if st.session_state['tutor']:
         for i in range(len(st.session_state['tutor'])):

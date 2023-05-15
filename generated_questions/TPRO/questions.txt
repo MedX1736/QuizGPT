@@ -1,0 +1,109 @@
+Question : Quelle est la définition d'un atome selon la programmation logique ?
+Réponse : Un atome représente les formules les plus simples. Selon la programmation logique, un atome est défini comme étant une formule atomique p(t1, t2, … tn), où p est un symbole de prédicat n-aires et t1, t2, … tn des termes.
+
+
+Question : Qu'est-ce que la programmation logique ?
+Réponse : La programmation logique est un style de programmation non procédurale qui se résume en une déclaration de certaines propriétés du problème à résoudre. La description de ces propriétés se fait à l'aide d'énoncés logiques (formules logiques) utilisant un ensemble de symboles (constantes, variables, conjonctions, disjonctions et négations). L'exécution d'un programme logique est réalisée à l'aide d'un démonstrateur automatique de théorèmes qui tente de vérifier si à partir d'un ensemble d'énoncés, on peut déduire une formule donnée aussi en entrée (le but ou la question du programme logique). Durant ce processus de démonstration, le moteur d'inférence résoudra le problème décrit par le programme logique en utilisant des rè
+
+
+Question : Qu'est-ce qu'un terme ?
+Réponse : Un terme est défini par : toute constante est un terme, toute variable est un terme et si f est un symbole de fonction n-aires et t1, t2, … tn des termes, alors f(t1, t2, … tn) est un terme. De plus, un terme peut être défini par l'ensemble des symboles utilisés (constantes, variables, etc.) et les opérateurs logiques (, , ).
+
+Question : Quel est le terme structuré représentant la liste [1,2,3] ?
+Réponse : lst(1,lst(2,lst(3,nil)))
+
+
+Question : Qu'est-ce qu'un atome en logique du premier ordre et comment peut-on le prouver ?
+Réponse : Un atome est une expression atomique qui ne peut pas être décomposée en expressions plus petites. En logique du premier ordre, un atome est une expression qui ne contient pas de variables et qui est composée d'un symbole de prédicat et d'un nombre fixe de symboles de constantes et de fonctions. Pour prouver un atome, on peut utiliser l'algorithme de résolution qui consiste à réfuter la dénégation initiale et à explorer en profondeur l'espace de recherche des résolvantes issues de cette dénégation. Par exemple, pour prouver la question (le But) A1  A2, avec les 4 implications f0 : A1 ← B1  B2, f1 : B1 ←, f2 : B2 ← B1  A2 et
+
+
+Question : Quelle est la méthode utilisée par l'algorithme pour explorer l'espace de recherche des résolvantes ?
+Réponse : L'algorithme explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, en utilisant une méthode de recherche récursive jusqu'à trouver la clause vide.
+
+
+Question : Est-ce que la clause 6 (app(X, [X|L])) est une conséquence logique ?
+Réponse : Oui, car elle ne contient pas d'antécédents et ne négation. Elle définit un prédicat qui sera évalué à vrai si X appartient à la liste L et faux sinon.
+
+
+Question : Quelle est la règle de la résolution ?
+Réponse : La règle de la résolution est définie comme suit : E1, E2 |-- E3 ssi : (res) E1 est de la forme a A, E2 est de la forme b B et E3 est de la forme (A , E3 est appelée instance substituée de E1 et E2.  est une substitution de renommage de telle sorte que E1 et E2 ne doivent avoir aucune variable commune.  est l'unificateur le plus général entre a et b. La règle 'dim' (diminution) est une simplification faite au niveau d'une seule clause, elle est définie comme suit : E1.
+
+
+Question : Quelle est la forme générale de l'algorithme de résolution descendante ?
+Réponse : L'algorithme de résolution descendante cherche à rendre vide la dénégation D en effaçant tous ses littéraux D. Il explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide. Il est correct mais pas complet, car l'exploration en profondeur risque d'emprunter une branche infinie dans une des itérations de la boucle 'Pour', avant d'explorer d'autres alternatives pouvant mener vers la clause vide.
+
+
+Question : Qu'est-ce que la substitution de renommage et comment est-elle utilisée dans l'algorithme de résolution ?
+Réponse : La substitution de renommage est une technique utilisée pour éviter les variables communes entre deux clauses lors de la résolution. Elle consiste à renommer les variables d'une clause de telle sorte qu'elles ne soient pas identiques à celles de l'autre clause. Cette technique est utilisée dans l'algorithme de résolution pour explorer en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide.
+
+Question : Quel est l'unificateur pour le terme [X,Y|Z] et le terme [a,b,c] ?
+Réponse : L'unificateur est { X←a , Y←b , Z←[c] }.
+
+
+Question : Qu'est-ce que l'unification de deux termes et comment est-elle utilisée dans l'algorithme de résolution par dénégation ?
+Réponse : L'unification est un processus qui consiste à trouver un unificateur le plus général entre deux termes, c'est-à-dire une substitution de renommage qui permet de rendre les deux termes identiques. L'unification est utilisée dans l'algorithme de résolution par dénégation pour explorer l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide. Par exemple, pour prouver la question (le But) : A1  A2, avec les 4 implications suivantes : f0 : A1 ← B1  B2, f1 : B1 ←, f2 : B2 ← B1  A2, f3 : A2 ←, il suffit de
+
+
+Question : Quelle est la forme de la dénégation D et comment est-elle utilisée pour prouver une question ?
+Réponse : La dénégation D est de la forme D1  D2  … Dn, où D1, D2, ..., Dn sont des littéraux positifs. Elle est utilisée pour prouver une question en réfutant sa négation. Par exemple, pour prouver la question (le But) A1  A2 avec les implications f0 : A1 ← B1  B2, f1 : B1 ←, f2 : B2 ← B1  A2 et f3 : A2 ←, il suffit de réfuter Non(A1  A2), c'est la dénégation initiale. Cet algorithme explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale
+
+
+Question : Quel algorithme est utilisé pour unifier deux termes et trouver une clause vide ?
+Réponse : L'algorithme le plus généralement utilisé pour unifier deux termes et trouver une clause vide est l'unificateur le plus général entre eux. Il explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide. Cependant, il est correct mais pas complet, car l'exploration en profondeur risque d'emprunter une branche infinie dans une des itérations de la boucle 'Pour', avant d'explorer d'autres alternatives pouvant mener vers la clause vide.
+
+
+Question : Quelle est la complexité de l'algorithme de résolution générale (stratégie par saturation) ?
+Réponse : L'algorithme de la résolution générale (stratégie par saturation) a une complexité exponentielle, car il explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide.
+
+
+Question : Comment l'algorithme explore-t-il l'espace de recherche des résolvantes issues de la dénégation initiale ?
+Réponse : L'algorithme explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale en explorant récursivement chaque branche jusqu'à ce qu'il trouve la clause vide. Il est correct mais pas complet, car l'exploration en profondeur risque d'emprunter une branche infinie dans une des itérations de la boucle 'Pour', avant d'explorer d'autres alternatives pouvant mener vers la clause vide. Un exemple simple est donné pour illustrer le processus.
+
+Question : Quelle est la complexité de l'algorithme par saturation ?
+Réponse : L'algorithme par saturation a une complexité exponentielle, car il explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, ce qui peut entraîner une branche infinie avant de trouver la clause vide.
+
+
+Question : Quelle est la règle du chaînage et comment est-elle appliquée dans le cas de la résolution ?
+Réponse : La règle du chaînage est : p ⇒ q , q ⇒ r |-- p ⇒ r. Elle est appliquée dans le cas de la résolution en réfutant la dénégation initiale et en explorant récursivement l'espace de recherche des résolvantes issues de cette dénégation jusqu'à trouver la clause vide.
+
+
+Question : Qu'est-ce qu'une clause de Horn et comment l'algorithme de résolution pour les clauses de Horn fonctionne-t-il ?
+Réponse : Une clause de Horn est une clause qui a au plus, un seul littéral positif. Elles sont classées en trois sous-catégories : implication, assertion et dénégation. L'algorithme de résolution pour les clauses de Horn explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide. Il commence par réfuter la dénégation initiale, puis explore récursivement chaque nouvelle branche jusqu'à ce qu'il trouve la clause vide. Si la clause vide est trouvée, l'algorithme signale un succès.
+
+
+Question : Quelle est la complexité de l'algorithme de la résolution descendante ?
+Réponse : L'algorithme de la résolution descendante est une méthode plus efficace que l'algorithme par saturation pour les clauses de Horn, mais sa complexité reste toujours exponentielle. Cependant, il est correct et peut trouver la clause vide en explorant en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale.
+
+
+Question : Quelle est la signification de Signaler 'échec' dans l'algorithme de résolution descendante ?
+Réponse : Signaler 'échec' signifie que l'algorithme de résolution descendante ne peut pas trouver de clause avec un conséquent qui peut être unifié avec le littéral D, donc l'algorithme s'arrête avec échec et ne peut pas trouver la clause vide c-a-d D' =  ( ), ce qui est nécessaire pour prouver la question (le But).
+
+
+Question : Qu'est-ce que le signalement 'Succès' dans l'algorithme de résolution ?
+Réponse : Le signalement 'Succès' est un message indiquant que la clause vide a été trouvée, ce qui signifie que la dénégation initiale a été réfutée et que le but a été démontré. Cela se produit lorsque l'algorithme explore en profondeur l'espace de recherche des résolvantes issues de la dénégation initiale, jusqu'à trouver la clause vide.
+
+
+Question : Quels sont les objets manipulés par Prolog ?
+Réponse : Les objets manipulés par Prolog sont : 
+– Objets élémentaires (constantes , variables)
+– Listes d'objets : [obj1, obj2, … objn]
+– Objets structurés : identificateur( obj1, obj2, … objm)
+– Prédicats : app(X,L) où X peut s'unifier avec le terme [a,b,c], l'unificateur est alors { X←a , Y←[b,c] } et X ne peut pas s'unifier avec le terme [ ] mais peut s'unifier avec le terme [a], l'unificateur est alors { X←a , Y←[ ] } et [X,Y|Z] peut s'unifier avec le terme [a,b,c], l'unificateur est alors { X←a , Y←b , Z←[c]
+
+Question : Quels sont les avantages de l'utilisation des objets structurés en Prolog ?
+Réponse : Les objets structurés permettent de représenter des termes composés d'un symbole de fonction ayant des arguments quelconques, ce qui facilite la manipulation d'objets complexes. Ils peuvent également être utilisés pour représenter des structures de données complexes, notamment celles qui peuvent être définies à l'aide d'équations à point fixe. Enfin, ils peuvent être utilisés pour représenter des listes et des entiers à l'aide de prédicats purement logiques.
+
+
+Question : Comment Prolog fonctionne-t-il pour démontrer des théorèmes ? 
+Réponse : Prolog fonctionne en utilisant un démonstrateur automatique de théorèmes qui accepte en entrée un ensemble d'énoncés représentant les hypothèses du programme logique et tente de vérifier si à partir de cet ensemble d'énoncés, on peut déduire une formule donnée aussi en entrée (le but ou la question du programme logique). Durant ce processus de démonstration, le moteur d'inférence résoudra , par effet de bord , le problème décrit par le programme logique, sous forme de clauses. Le démonstrateur automatique de Prolog utilise l'alphabet (l'ensemble des symboles utilisés, y compris les constantes, les variables et les opérateurs logiques tels que la conjonction, la disjonction et la négation), les formules bien
+
+
+Question : app(X, [a,b])
+Réponse : X = a
+
+
+Question : Peut-on unifier [X|Y] avec le terme [a] ?
+Réponse : Oui, l'unificateur est alors { X←a , Y←[ ] }. De plus, [X|Y] ne peut pas s'unifier avec le terme [a,b], mais peut s'unifier avec le terme [a,b,c], l'unificateur étant alors { X←a , Y←[b,c] }. [X|Y] ne peut pas s'unifier avec le terme [ ] et [X,Y|Z] peut s'unifier avec le terme [a,b,c], l'unificateur étant alors { X←a , Y←b , Z←[c] }.
+
+Question : Quel est le terme structuré représentant la liste [1,2,3] ?
+Réponse : lst(1,lst(2,lst(3,nil)))

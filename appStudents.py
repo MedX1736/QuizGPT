@@ -6,7 +6,7 @@ import csv
 import time
 import os
 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "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"
 
 st.set_page_config(page_title="QuizGpt-ESI")
 
@@ -21,6 +21,7 @@ with st.sidebar:
     
     💡 Note: OpenAi api key not required ! The questions are already generated
     ''')
+    os.environ["OPENAI_API_KEY"] = st.text_input("Give Your OpenAi Api ke")
 
 
 submittedAnswer = False
@@ -28,10 +29,15 @@ waiting_for_user_answer = False
 answer = "Default"
 
 def generate_answer_for_custom_input(prompt):
-  index = GPTSimpleVectorIndex.load_from_disk('index.json')
-  quiz = index.query(prompt)
-  questions = quiz 
-  return questions
+    try :        
+        index = GPTSimpleVectorIndex.load_from_disk('index.json')
+        quiz = index.query(prompt)
+        questions = quiz 
+        return questions
+    except:
+        with input_container:
+            st.error("Verify OpenAi API Key.")
+
 
 
 #Load Questions 
@@ -112,23 +118,37 @@ if 'student' not in st.session_state:
 with response_container:
     if input:
         st.session_state.input_global = input
-        response = generate_response(input)
-        st.session_state.student.append(input)
-        st.session_state.tutor.append(response)
+        try :
+            response,response2 = generate_response(input)
+            st.session_state.answer = response2
+            st.session_state.custom_answer = False
+            st.session_state.student.append(input)
+            st.session_state.tutor.append(response)
+        except:
+            response = generate_response(input)
+            st.session_state.answer = response
+            st.session_state.custom_answer = True
+            st.session_state.student.append(input)
+            st.session_state.tutor.append(response)
 
 
 if text_input_bool: 
     with input_container:
         text_input = st.text_input("Give an Answer: ", "", key="input")
         if st.button("Submit") :
-            time.sleep(3)
+            time.sleep(1)
             if text_input :
-                response = generate_answer_for_custom_input(text_input)
-                # response = generate_response(input,text_input)
-                print(response)
-                st.session_state.student.append(text_input)
-                st.session_state.tutor.append(response.response)
-                text_input_bool = False
+                if not st.session_state.custom_answer:
+                    answer = st.session_state.answer
+                    st.session_state.student.append(text_input)
+                    st.session_state.tutor.append(answer)
+                    text_input_bool = False
+                else : 
+                    answer = generate_answer_for_custom_input(text_input)
+                    st.session_state.student.append(text_input)
+                    st.session_state.tutor.append(answer.response.strip())
+                    text_input_bool = False
+
         
     if st.session_state['tutor']:
         for i in range(len(st.session_state['tutor'])):

@@ -18,8 +18,10 @@ def extract_questions_and_responses(file_path):
                         answer= ""
                         break;
                     else : 
-                        answer += lines[i].strip() + '\n'
+                        answer += lines[i+1].strip() + '\n'
                         i = i +1
+            elif line == "":
+                continue 
             else:
                 if (line.startswith("Question :")):
                     question = line.replace("Question :", "").strip() + '\n'
@@ -47,7 +49,7 @@ def write_to_csv(file_path, questions, responses):
 
 # Usage example
 file_path = "generated_questions/TPRO/quizs.txt"  # Replace with the path to your file
-output_csv_path = 'output.csv'  # Path to the output CSV file
+output_csv_path = 'quiz.csv'  # Path to the output CSV file
 
 questions, responses = extract_questions_and_responses(file_path)
 write_to_csv(output_csv_path, questions, responses)
